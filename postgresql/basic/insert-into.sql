@@ -1,0 +1,13 @@
+INSERT INTO books title VALUES('Forastero en tierras extrañas');
+INSERT INTO books title VALUES('La joven de las naranjas');
+INSERT INTO books title VALUES('El problema de los tres cuerpos');
+INSERT INTO books title VALUES('El Bosque Oscuro');
+INSERT INTO books title VALUES('El fin de la muerte');
+INSERT INTO books title VALUES('La Redención del Tiempo');
+INSERT INTO books title VALUES('El festín de los cuervos');
+INSERT INTO books title VALUES('Lilus Kikus');
+INSERT INTO books title VALUES('Memoria de mis putas tristes');
+INSERT INTO books title VALUES('El prodigioso miligramo');
+INSERT INTO books title VALUES('El guardagujas');
+INSERT INTO books title VALUES('Un pacto con el diablo');
+INSERT INTO books title VALUES('Neuromante');
