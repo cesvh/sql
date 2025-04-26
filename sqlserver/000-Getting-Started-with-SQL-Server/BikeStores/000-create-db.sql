@@ -1,5 +1,5 @@
 USE [master]
 GO
 
-CREATE DATABASE [BikesStores]
+CREATE DATABASE [BikeStores]
 GO
