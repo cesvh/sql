@@ -38,6 +38,8 @@ WHERE last_name LIKE '[^A-X]%' ORDER BY last_name;
 SELECT customer_id, first_name, last_name FROM sales.customers
 WHERE first_name NOT LIKE 'A%' ORDER BY first_name;
 -- 7) Ejemplo de uso del operador LIKE con ESCAPE
--- PENDIENTE: https://www.sqlservertutorial.net/sql-server-basics/sql-server-like/
+-- Escapamos el caracter % para dar con 30%
+SELECT feedback_id, comment FROM sales.feedbacks
+WHERE comment LIKE '%30!%%' ESCAPE '!';
 
 -- Utilice el operador LIKE para comprobar si un valor coincide con un patrón especificado.
