@@ -1,0 +1,1 @@
+-- Los índices son estructuras de datos especiales asociadas a tablas o vistas que ayudan a agilizar las consultas. SQL Server ofrece dos tipos de índices: agrupados y no agrupados.
