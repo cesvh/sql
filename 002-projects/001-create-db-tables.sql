@@ -17,7 +17,7 @@ create table universe.tb_event(
     timestamp_update datetime null default getdate()
 );
 
-insert into universe.tb_event(event_name, event_year) values('La gran expanción', -13770000000);
+insert into universe.tb_event(event_name, event_year) values('La gran expansión', -13770000000);
 insert into universe.tb_event(event_name, event_year) values('Inicio de la Era Común', 0);
 insert into universe.tb_event(event_name, event_year) values('Inicio del proyecto "Historias"', 2025);
 select * from universe.tb_event;
