@@ -50,7 +50,7 @@ create table universe.tb_stages_event(
 drop table universe.tb_event_description;
 create table universe.tb_event_description(
 	id int primary key not null identity(1, 1),
-	fk_id_event_description	int not null foreign key references universe.tb_event(id),
+	fk_id_event	int not null foreign key references universe.tb_event(id),
     item_description varchar(1000) null,
     active tinyint null default 1 check (active between 0 and 2),
     datetime_create datetime null default getdate(),
