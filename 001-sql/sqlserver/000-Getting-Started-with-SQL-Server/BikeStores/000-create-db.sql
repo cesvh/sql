@@ -1,8 +1,8 @@
-USE [master]
-GO
+use master;
+go
 
-CREATE DATABASE [BikeStores]
-GO
+create database BikeStores;
+go
 
-USE [BikeStores]
-GO
+use BikeStores;
+go
