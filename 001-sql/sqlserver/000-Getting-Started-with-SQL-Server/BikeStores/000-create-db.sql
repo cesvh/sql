@@ -5,3 +5,4 @@ CREATE DATABASE [BikeStores]
 GO
 
 USE [BikeStores]
+GO
