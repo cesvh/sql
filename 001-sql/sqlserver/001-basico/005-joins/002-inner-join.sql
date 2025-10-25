@@ -1,13 +1,22 @@
 
-SELECT product_name, list_price, category_id
-FROM production.products 
-ORDER BY product_name DESC;
+SELECT 
+	product_name, list_price, category_id
+FROM 
+	production.products 
+ORDER BY 
+	product_name DESC;
 
 
-SELECT p.product_name, c.category_name, p.list_price
-FROM production.products p 
-INNER JOIN production.categories c ON c.category_id = p.category_id 
-ORDER BY p.product_name DESC;
+SELECT 
+	p.product_name
+	, c.category_name
+	, p.list_price
+FROM 
+	production.products p 
+INNER JOIN 
+	production.categories c ON c.category_id = p.category_id 
+ORDER BY 
+	p.product_name DESC;
 
 
 --SELECT select_list FROM T1 INNER JOIN T2 ON join_predicate;
@@ -19,8 +28,16 @@ ORDER BY p.product_name DESC;
 --SELECT * FROM production.brands;
 
 
-SELECT p.product_name, c.category_name, b.brand_name, p.list_price
-FROM production.products p
-INNER JOIN production.categories c ON c.category_id = p.category_id
-INNER JOIN production.brands b ON b.brand_id = p.brand_id
-ORDER BY p.product_name DESC;
+SELECT 
+	p.product_name
+	, c.category_name
+	, b.brand_name
+	, p.list_price
+FROM 
+	production.products p
+INNER JOIN 
+	production.categories c ON c.category_id = p.category_id
+INNER JOIN 
+	production.brands b ON b.brand_id = p.brand_id
+ORDER BY 
+	p.product_name DESC;
