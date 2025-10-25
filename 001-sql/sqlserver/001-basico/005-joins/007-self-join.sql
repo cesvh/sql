@@ -50,9 +50,12 @@ staff_id	first_name	manager_id
 SELECT
     e.first_name + ' ' + e.last_name employee
     , m.first_name + ' ' + m.last_name manager
-FROM sales.staffs e
-INNER JOIN sales.staffs m ON m.staff_id = e.manager_id
-ORDER BY manager;
+FROM 
+	sales.staffs e
+INNER JOIN 
+	sales.staffs m ON m.staff_id = e.manager_id
+ORDER BY 
+	manager;
 
 -- En este ejemplo, hicimos referencia a la tabla staffs dos veces: una como e para los empleados y las otras como m para los gerentes. El predicado de unión coincide con la relación entre empleado y gerente utilizando los valores en las columnas e.manager_id y m.staff_id.
 
@@ -61,9 +64,12 @@ ORDER BY manager;
 SELECT
     e.first_name + ' ' + e.last_name employee
     , m.first_name + ' ' + m.last_name manager
-FROM sales.staffs e
-LEFT JOIN sales.staffs m ON m.staff_id = e.manager_id
-ORDER BY manager;
+FROM 
+	sales.staffs e
+LEFT JOIN 
+	sales.staffs m ON m.staff_id = e.manager_id
+ORDER BY 
+	manager;
 
 /*
 employee	manager
@@ -83,29 +89,30 @@ Bernardine Houston	Venita Daniel
 
 -- La tabla sales.customers almacena la información del cliente, incluido el nombre, apellido, teléfono, correo electrónico, calle, ciudad, estado y código postal.
 
-CREATE TABLE sales.customers (
-	customer_id INT IDENTITY (1, 1) PRIMARY KEY,
-	first_name VARCHAR (255) NOT NULL,
-	last_name VARCHAR (255) NOT NULL,
-	phone VARCHAR (25),
-	email VARCHAR (255) NOT NULL,
-	street VARCHAR (255),
-	city VARCHAR (50),
-	state VARCHAR (25),
-	zip_code VARCHAR (5)
-);
+--CREATE TABLE sales.customers (
+--	customer_id INT IDENTITY (1, 1) PRIMARY KEY,
+--	first_name VARCHAR (255) NOT NULL,
+--	last_name VARCHAR (255) NOT NULL,
+--	phone VARCHAR (25),
+--	email VARCHAR (255) NOT NULL,
+--	street VARCHAR (255),
+--	city VARCHAR (50),
+--	state VARCHAR (25),
+--	zip_code VARCHAR (5)
+--);
+
+select * from sales.customers;
 
 -- La siguiente declaración utiliza la self join para encontrar los clientes ubicados en la misma ciudad.
 
-select c1.city city
-	, c1.customer_id customer_1_id
-	, c1.first_name + ' ' + c1.last_name customer_1
-	, c2.customer_id customer_2_id
-	, c2.first_name + ' ' + c2.last_name customer_2
-from sales.customers c1
+select 
+	c1.city city, c1.customer_id customer_1_id, c1.first_name + ' ' + c1.last_name customer_1
+	, c2.customer_id customer_2_id, c2.first_name + ' ' + c2.last_name customer_2
+from 
+	sales.customers c1
 -- La siguiente condición garantiza que la declaración no compare al mismo cliente:
-inner join sales.customers c2 on c1.customer_id > c2.customer_id
-and c1.city = c2.city
+inner join 
+	sales.customers c2 on c1.customer_id > c2.customer_id and c1.city = c2.city
 order by
 	city
 	, customer_1
@@ -135,12 +142,13 @@ Amarillo	482	Narcisa Knapp	198	Luis Tyler
 -- La siguiente consulta devuelve los clientes ubicados en Albany:
 
 SELECT 
-   customer_id
-   , first_name + ' ' + last_name customer_1
-   , city
-FROM sales.customers
-WHERE city = 'Albany'
-ORDER BY customer_1;
+   customer_id, first_name + ' ' + last_name customer_1, city
+FROM 
+	sales.customers
+WHERE 
+	city = 'Albany'
+ORDER BY 
+	customer_1;
 
 /*
 customer_id	customer_1	city
@@ -152,15 +160,16 @@ customer_id	customer_1	city
 -- Esta consulta utiliza el operador (>) en la cláusula ON:
 
 SELECT
-    c1.city
-	, c1.customer_id customer_1_id
-	, c1.first_name + ' ' + c1.last_name customer_1
-	, c2.customer_id customer_2_id
-	, c2.first_name + ' ' + c2.last_name customer_2
-FROM sales.customers c1
-INNER JOIN sales.customers c2 ON c1.customer_id > c2.customer_id AND c1.city = c2.city
-WHERE c1.city = 'Albany'
-ORDER BY c1.city, customer_1, customer_2;
+    c1.city, c1.customer_id customer_1_id, c1.first_name + ' ' + c1.last_name customer_1
+	, c2.customer_id customer_2_id, c2.first_name + ' ' + c2.last_name customer_2
+FROM 
+	sales.customers c1
+INNER JOIN 
+	sales.customers c2 ON c1.customer_id > c2.customer_id AND c1.city = c2.city
+WHERE 
+	c1.city = 'Albany'
+ORDER BY 
+	c1.city, customer_1, customer_2;
 
 /*
 city	customer_1_id	customer_1	customer_2_id	customer_2
@@ -172,15 +181,16 @@ Albany	345	Mi Gray	210	Priscilla Wilkins
 -- Esta consulta utiliza el operador (<>) en la cláusula ON:
 
 SELECT
-    c1.city
-	, c1.customer_id customer_1_id
-	, c1.first_name + ' ' + c1.last_name customer_1
-	, c2.customer_id customer_2_id
-	, c2.first_name + ' ' + c2.last_name customer_2
-FROM sales.customers c1
-INNER JOIN sales.customers c2 ON c1.customer_id <> c2.customer_id AND c1.city = c2.city
-WHERE c1.city = 'Albany'
-ORDER BY c1.city, customer_1, customer_2;
+    c1.city, c1.customer_id customer_1_id, c1.first_name + ' ' + c1.last_name customer_1
+	, c2.customer_id customer_2_id, c2.first_name + ' ' + c2.last_name customer_2
+FROM 
+	sales.customers c1
+INNER JOIN 
+	sales.customers c2 ON c1.customer_id <> c2.customer_id AND c1.city = c2.city
+WHERE 
+	c1.city = 'Albany'
+ORDER BY 
+	c1.city, customer_1, customer_2;
 
 /*
 city	customer_1_id	customer_1	customer_2_id	customer_2
