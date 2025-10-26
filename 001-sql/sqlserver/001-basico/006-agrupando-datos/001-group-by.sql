@@ -190,3 +190,20 @@ FROM
     sales.order_items
 GROUP BY
     order_id;
+
+
+
+-- 5) Ejemplo de uso de la cláusula GROUP BY con la función STRING_AGG() para agrupar miembros de un proyecto al proyecto
+
+select 
+	pr.title Proyecto
+	, STRING_AGG(me.name, ', ') 
+	/*inicio: opcional*/ within group (order by me.name desc) /*fin: opcional*/ Personas
+	, STRING_AGG(me.id, ',') Claves
+from 
+	pm.projects pr
+inner join 
+	pm.members me on pr.id = me.project_id
+group by
+	pr.title
+;
